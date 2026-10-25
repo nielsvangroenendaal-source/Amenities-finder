@@ -1,3 +1,4 @@
+{
 "name": "hotel-ranker",
 "type": "module",
 "scripts": {
@@ -13,13 +14,3 @@
 "vite": "^5.2.0"
 }
 }
-
-Step 5 Create a file named vite.config.js in the main folder
-Step 6 Paste this text into vite.config.js
-
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-plugins: [react()]
-})
