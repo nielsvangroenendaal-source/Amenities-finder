@@ -26,7 +26,7 @@ try {
     .eq('search_query', location.toLowerCase())
     .single()
 
-  if (data && new Date() - new Date(data.created_at) < 24 * 60 * 60 * 1000) {
+  if (data && new Date() - new Date(data.created_at) < 86400000) {
     setHotels(data.results)
     setLoading(false)
     return
@@ -100,7 +100,7 @@ placeholder="Enter city"
 
 <div style={{ marginTop: '20px' }}>
 {hotels.map((hotel, index) => (
-<div key={index} style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '10px' }}>
+<div key={index} style={{ border: '1px solid lightgray', padding: '10px', marginBottom: '10px' }}>
 {hotel.hotelName} ({hotel.starRating} Stars)
 Location: {hotel.cityLocation}
 Price: ${hotel.averagePrice}
