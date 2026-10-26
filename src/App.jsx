@@ -85,29 +85,29 @@ try {
 }
 
 return (
-<div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-Hotel Ranker
-
-<input
-type="text"
-value={location}
-onChange={(e) => setLocation(e.target.value)}
-placeholder="Enter city"
-/>
-
-{loading ? 'Searching' : 'Search'}
-
-
-<div style={{ marginTop: '20px' }}>
-{hotels.map((hotel, index) => (
-<div key={index} style={{ border: '1px solid lightgray', padding: '10px', marginBottom: '10px' }}>
-{hotel.hotelName} ({hotel.starRating} Stars)
-Location: {hotel.cityLocation}
-Price: ${hotel.averagePrice}
-Amenities: {hotel.amenities?.join(', ')}
-
-))}
-
-
-)
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+      <h1>Hotel Ranker</h1>
+      <div>
+        <input 
+          type="text" 
+          value={location} 
+          onChange={(e) => setLocation(e.target.value)} 
+          placeholder="Enter city" 
+        />
+        <button onClick={fetchHotels} disabled={loading}>
+          {loading ? 'Searching' : 'Search'}
+        </button>
+      </div>
+      <div style={{ marginTop: '20px' }}>
+        {hotels.map((hotel, index) => (
+          <div key={index} style={{ border: '1px solid lightgray', padding: '10px', marginBottom: '10px' }}>
+            <h2>{hotel.hotelName} ({hotel.starRating} Stars)</h2>
+            <p>Location: {hotel.cityLocation}</p>
+            <p>Price: ${hotel.averagePrice}</p>
+            <p>Amenities: {hotel.amenities?.join(', ')}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
